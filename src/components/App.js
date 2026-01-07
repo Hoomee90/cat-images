@@ -1,10 +1,10 @@
 import React from 'react';
-import HttpCat from './HttpCat';
+import Cats from './Cats';
 
 function App() {
   return (
     <React.Fragment>
-      < HttpCat />
+      < Cats />
     </React.Fragment>
   );
 }

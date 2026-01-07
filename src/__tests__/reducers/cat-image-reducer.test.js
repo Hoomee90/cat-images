@@ -1,4 +1,4 @@
-import catImageReducer from '../../reducers/http-cat-reducer';
+import catImageReducer from '../../reducers/cat-image-reducer';
 import * as c from '../../actions/ActionTypes';
 
 describe('catImageReducer', () => {

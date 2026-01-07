@@ -1,6 +1,6 @@
 import * as c from '../actions/ActionTypes';
 
-const httpCatReducer = (state, action) => {
+const catImageReducer = (state, action) => {
   switch (action.type) {
     case c.GET_CAT_IMAGE_SUCCESS:
       return {
@@ -19,4 +19,4 @@ const httpCatReducer = (state, action) => {
   }
 };
 
-export default httpCatReducer;
+export default catImageReducer;
