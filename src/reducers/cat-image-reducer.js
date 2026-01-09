@@ -14,6 +14,13 @@ const catImageReducer = (state, action) => {
         isLoaded: true,
         error: action.error
       };
+    case c.RESET_CAT_IMAGE:
+      return {
+        ...state,
+        isLoaded: false,
+        catImage: null,
+        error: null
+      }
     default:
       throw new Error(`There is no action matching ${action.type}.`);
   }
