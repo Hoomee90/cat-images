@@ -1,6 +1,6 @@
 import React, { useEffect, useReducer } from 'react';
 import catImageReducer from '../reducers/cat-image-reducer';
-import { getCatImageSuccess, getCatImageFailure } from '../actions/index';
+import { getCatImageSuccess, getCatImageFailure, resetCatImage } from '../actions/index';
 
 const initialState = {
   isLoaded: false,
@@ -8,11 +8,15 @@ const initialState = {
   error: null
 }
 
-function Cats() {
+function CatController() {
 
   const [state, dispatch] = useReducer(catImageReducer, initialState);
 
   useEffect(() => {
+    getCat();
+  }, []);
+
+  const getCat = () => {
     fetch(`https://cataas.com/cat?json=true`)
       .then(response => {
         if (!response.ok) {
@@ -29,23 +33,32 @@ function Cats() {
         const action = getCatImageFailure(error.message);
         dispatch(action);
       });
-  }, [])
+  }
+
+  const handleClick = () => {
+    const action = resetCatImage();
+    dispatch(action)
+    getCat();
+  }
 
   const { error, isLoaded, catImage } = state;
-
+  let buttonText = null;
 
   if (error) {
-    return <h1>Error: {error}</h1>;
+    buttonText = `Error: ${error}`;
   } else if (!isLoaded) {
-    return <h1>...Loading...</h1>;
+    buttonText = "...Loading...";
   } else {
-    return (
-      <React.Fragment>
-        <h1>Cat Image</h1>
-        <img src={catImage} alt="a cat" />
-      </React.Fragment>
-    );
+    buttonText = "Get Cat Image";
   }
+  return (
+    <React.Fragment>
+      <h1>Cat Image</h1>
+      <button className="d-block" onClick={handleClick}>{buttonText}</button>
+      <hr />
+      {catImage && <img src={catImage} alt="a cat" />}
+    </React.Fragment>
+  );
 }
 
-export default Cats;
+export default CatController;
