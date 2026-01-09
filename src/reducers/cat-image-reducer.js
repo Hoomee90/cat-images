@@ -20,7 +20,7 @@ const catImageReducer = (state, action) => {
         isLoaded: false,
         catImage: null,
         error: null
-      }
+      };
     default:
       throw new Error(`There is no action matching ${action.type}.`);
   }

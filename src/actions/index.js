@@ -10,6 +10,6 @@ export const getCatImageFailure = (error) => ({
   error
 });
 
-export const unloadCatImage = () => ({
+export const resetCatImage = () => ({
   type: c.RESET_CAT_IMAGE
 });
