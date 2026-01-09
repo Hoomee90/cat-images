@@ -1,11 +1,11 @@
 import React from 'react';
-import Cats from './Cats';
+import CatController from './CatController';
 
 function App() {
   return (
-    <React.Fragment>
-      < Cats />
-    </React.Fragment>
+    <div className="container">
+      < CatController />
+    </div>
   );
 }
 
