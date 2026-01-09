@@ -31,4 +31,4 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 ## License
 
-Copyright (c) 2025 Samantha Callie
+Copyright (c) 2026 Samantha Callie
